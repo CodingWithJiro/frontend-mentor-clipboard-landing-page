@@ -1,0 +1,1033 @@
+/* || RESET */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img,
+picture,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+/* || FONTS */
+@font-face {
+  font-display: swap;
+  font-family: "Bai Jamjuree";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/bai-jamjuree-v12-latin-regular.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Bai Jamjuree";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../assets/fonts/bai-jamjuree-v12-latin-600.woff2") format("woff2");
+}
+
+/* || VARIABLES */
+/* CHANGE THE DATA BELOW AS NEEDED */
+:root {
+  /* FONTS */
+  --FF: "Bai Jamjuree", sans-serif;
+  --FS: 1rem;
+
+  /* COLORS */
+  --BGCOLOR: #fff;
+  --BGCOLOR-HEADER-DOWNLOAD-IOS: hsl(171, 66%, 44%);
+  --BGCOLOR-HEADER-DOWNLOAD-IOS-HOVER: hsl(171, 66%, 49%);
+  --BGCOLOR-HEADER-DOWNLOAD-MAC: hsl(233, 100%, 69%);
+  --BGCOLOR-HEADER-DOWNLOAD-MAC-HOVER: hsl(233, 100%, 74%);
+  --BGCOLOR-CTA-DOWNLOAD-IOS: hsl(171, 66%, 44%);
+  --BGCOLOR-CTA-DOWNLOAD-IOS-HOVER: hsl(171, 66%, 49%);
+  --BGCOLOR-CTA-DOWNLOAD-MAC: hsl(233, 100%, 69%);
+  --BGCOLOR-CTA-DOWNLOAD-MAC-HOVER: hsl(233, 100%, 74%);
+  --BGCOLOR-FOOTER: #f5f6f8;
+  --FONT-COLOR-HEADER-TITLE: hsl(210, 10%, 33%);
+  --FONT-COLOR-HEADER-DESCRIPTION: hsl(201, 11%, 66%);
+  --FONT-COLOR-HEADER-LOGO: #26bba4;
+  --FONT-COLOR-HEADER-LOGO-HOVER: hsl(233, 100%, 69%);
+  --FONT-COLOR-HEADER-DOWNLOAD: #fff;
+  --FONT-COLOR-TRACK-TITLE: hsl(210, 10%, 33%);
+  --FONT-COLOR-TRACK-DESCRIPTION: hsl(201, 11%, 66%);
+  --FONT-COLOR-TRACK-FEATURE-TITLE: hsl(210, 10%, 33%);
+  --FONT-COLOR-TRACK-FEATURE-INFO: hsl(201, 11%, 66%);
+  --FONT-COLOR-ACCESS-TITLE: hsl(210, 10%, 33%);
+  --FONT-COLOR-ACCESS-DESCRIPTION: hsl(201, 11%, 66%);
+  --FONT-COLOR-SUPERCHARGE-TITLE: hsl(210, 10%, 33%);
+  --FONT-COLOR-SUPERCHARGE-DESCRIPTION: hsl(201, 11%, 66%);
+  --FONT-COLOR-SUPERCHARGE-ICON: #9eabb2;
+  --FONT-COLOR-SUPERCHARGE-ICON-HOVER: hsl(171, 66%, 44%);
+  --FONT-COLOR-SUPERCHARGE-FEATURE-TITLE: hsl(210, 10%, 33%);
+  --FONT-COLOR-SUPERCHARGE-FEATURE-INFO: hsl(201, 11%, 66%);
+  --FONT-COLOR-CTA-TITLE: hsl(210, 10%, 33%);
+  --FONT-COLOR-CTA-INFO: hsl(201, 11%, 66%);
+  --FONT-COLOR-CTA-DOWNLOAD: #fff;
+  --FONT-COLOR-FOOTER-LOGO: #26bba4;
+  --FONT-COLOR-FOOTER-LOGO-HOVER: hsl(233, 100%, 69%);
+  --FONT-COLOR-FOOTER-LINK: hsl(210, 10%, 33%);
+  --FONT-COLOR-FOOTER-LINK-HOVER: hsl(171, 66%, 44%);
+  --FONT-COLOR-FOOTER-ICON: #4c545c;
+  --FONT-COLOR-FOOTER-ICON-HOVER: hsl(171, 66%, 44%);
+  --SHADOW-COLOR-HEADER-DOWNLOAD-IOS: hsl(171, 66%, 34%);
+  --SHADOW-COLOR-HEADER-DOWNLOAD-IOS-ALT: hsla(171, 66%, 44%, 0.5);
+  --SHADOW-COLOR-HEADER-DOWNLOAD-MAC: hsl(233, 100%, 59%);
+  --SHADOW-COLOR-HEADER-DOWNLOAD-MAC-ALT: hsl(233, 100%, 69%, 0.5);
+  --SHADOW-COLOR-CTA-DOWNLOAD-IOS: hsl(171, 66%, 34%);
+  --SHADOW-COLOR-CTA-DOWNLOAD-IOS-ALT: hsla(171, 66%, 44%, 0.5);
+  --SHADOW-COLOR-CTA-DOWNLOAD-MAC: hsl(233, 100%, 59%);
+  --SHADOW-COLOR-CTA-DOWNLOAD-MAC-ALT: hsl(233, 100%, 69%, 0.5);
+
+  /* THEME TOGGLE COLORS */
+  --FONT-COLOR-THEME-ICON-LIGHT: #4b4b4b;
+  --BGCOLOR-THEME-BUTTON: #e5e5e5;
+  --BGCOLOR-THEME-BUTTON-AFTER: #4b4b4b;
+  --BORDER-COLOR-THEME-BUTTON: #d1d1d1;
+  --SHADOW-COLOR-THEME: rgba(0, 0, 0, 0.3);
+
+  /* BORDERS */
+  --BORDER-THEME-BUTTON: 1px solid var(--BORDER-COLOR-THEME-BUTTON);
+
+  /* SHADOWS */
+  --BOX-SHADOW-THEME: 0 0 3px var(--SHADOW-COLOR-THEME);
+  --BOX-SHADOW-HEADER-DOWNLOAD-IOS: 0 3.5px 0
+      var(--SHADOW-COLOR-HEADER-DOWNLOAD-IOS),
+    0 6px 20px var(--SHADOW-COLOR-HEADER-DOWNLOAD-IOS-ALT);
+  --BOX-SHADOW-HEADER-DOWNLOAD-MAC: 0 3.5px 0
+      var(--SHADOW-COLOR-HEADER-DOWNLOAD-MAC),
+    0 6px 20px var(--SHADOW-COLOR-HEADER-DOWNLOAD-MAC-ALT);
+  --BOX-SHADOW-CTA-DOWNLOAD-IOS: 0 3.5px 0 var(--SHADOW-COLOR-CTA-DOWNLOAD-IOS),
+    0 6px 20px var(--SHADOW-COLOR-CTA-DOWNLOAD-IOS-ALT);
+  --BOX-SHADOW-CTA-DOWNLOAD-MAC: 0 3.5px 0 var(--SHADOW-COLOR-CTA-DOWNLOAD-MAC),
+    0 6px 20px var(--SHADOW-COLOR-CTA-DOWNLOAD-MAC-ALT);
+}
+
+/* || UTILITY CLASSES */
+.dark {
+  --BGCOLOR: #0f1218;
+  --BGCOLOR-HEADER-DOWNLOAD-IOS: hsl(171, 66%, 35%);
+  --BGCOLOR-HEADER-DOWNLOAD-IOS-HOVER: hsl(171, 66%, 40%);
+  --BGCOLOR-HEADER-DOWNLOAD-MAC: hsl(233, 100%, 60%);
+  --BGCOLOR-HEADER-DOWNLOAD-MAC-HOVER: hsl(233, 100%, 65%);
+  --BGCOLOR-CTA-DOWNLOAD-IOS: hsl(171, 66%, 35%);
+  --BGCOLOR-CTA-DOWNLOAD-IOS-HOVER: hsl(171, 66%, 40%);
+  --BGCOLOR-CTA-DOWNLOAD-MAC: hsl(233, 100%, 60%);
+  --BGCOLOR-CTA-DOWNLOAD-MAC-HOVER: hsl(233, 100%, 65%);
+  --BGCOLOR-FOOTER: #1a1e26;
+  --FONT-COLOR-HEADER-TITLE: hsl(0, 0%, 100%);
+  --FONT-COLOR-HEADER-DESCRIPTION: hsl(220, 15%, 70%);
+  --FONT-COLOR-HEADER-LOGO: hsl(171, 66%, 45%);
+  --FONT-COLOR-HEADER-LOGO-HOVER: hsl(233, 100%, 75%);
+  --FONT-COLOR-HEADER-DOWNLOAD: #fff;
+  --FONT-COLOR-TRACK-TITLE: hsl(0, 0%, 100%);
+  --FONT-COLOR-TRACK-DESCRIPTION: hsl(220, 15%, 70%);
+  --FONT-COLOR-TRACK-FEATURE-TITLE: hsl(0, 0%, 100%);
+  --FONT-COLOR-TRACK-FEATURE-INFO: hsl(220, 15%, 70%);
+  --FONT-COLOR-ACCESS-TITLE: hsl(0, 0%, 100%);
+  --FONT-COLOR-ACCESS-DESCRIPTION: hsl(220, 15%, 70%);
+  --FONT-COLOR-SUPERCHARGE-TITLE: hsl(0, 0%, 100%);
+  --FONT-COLOR-SUPERCHARGE-DESCRIPTION: hsl(220, 15%, 70%);
+  --FONT-COLOR-SUPERCHARGE-ICON: #9eabb2;
+  --FONT-COLOR-SUPERCHARGE-ICON-HOVER: hsl(171, 66%, 45%);
+  --FONT-COLOR-SUPERCHARGE-FEATURE-TITLE: hsl(0, 0%, 100%);
+  --FONT-COLOR-SUPERCHARGE-FEATURE-INFO: hsl(220, 15%, 70%);
+  --FONT-COLOR-CTA-TITLE: hsl(0, 0%, 100%);
+  --FONT-COLOR-CTA-INFO: hsl(220, 15%, 70%);
+  --FONT-COLOR-CTA-DOWNLOAD: #fff;
+  --FONT-COLOR-FOOTER-LOGO: hsl(171, 66%, 45%);
+  --FONT-COLOR-FOOTER-LOGO-HOVER: hsl(233, 100%, 75%);
+  --FONT-COLOR-FOOTER-LINK: hsl(0, 0%, 100%);
+  --FONT-COLOR-FOOTER-LINK-HOVER: hsl(171, 66%, 45%);
+  --FONT-COLOR-FOOTER-ICON: #ccc;
+  --FONT-COLOR-FOOTER-ICON-HOVER: hsl(171, 66%, 45%);
+  --SHADOW-COLOR-HEADER-DOWNLOAD-IOS: hsl(171, 66%, 25%);
+  --SHADOW-COLOR-HEADER-DOWNLOAD-IOS-ALT: hsla(171, 66%, 35%, 0.5);
+  --SHADOW-COLOR-HEADER-DOWNLOAD-MAC: hsl(233, 100%, 50%);
+  --SHADOW-COLOR-HEADER-DOWNLOAD-MAC-ALT: hsla(233, 100%, 60%, 0.5);
+  --SHADOW-COLOR-CTA-DOWNLOAD-IOS: hsl(171, 66%, 25%);
+  --SHADOW-COLOR-CTA-DOWNLOAD-IOS-ALT: hsla(171, 66%, 35%, 0.5);
+  --SHADOW-COLOR-CTA-DOWNLOAD-MAC: hsl(233, 100%, 50%);
+  --SHADOW-COLOR-CTA-DOWNLOAD-MAC-ALT: hsla(233, 100%, 60%, 0.5);
+
+  /* THEME TOGGLE COLORS */
+  --FONT-COLOR-THEME-ICON-DARK: #f0f0f0;
+  --BGCOLOR-THEME-BUTTON: #1c1c1c;
+  --BGCOLOR-THEME-BUTTON-AFTER: #f0f0f0;
+  --BORDER-COLOR-THEME-BUTTON: #444;
+  --SHADOW-COLOR-THEME: rgba(255, 255, 255, 0.2);
+}
+
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  top: auto;
+  overflow: hidden;
+}
+
+.hidden {
+  opacity: 0;
+  display: none;
+}
+
+.container {
+  padding-inline: 2rem;
+  margin-inline: auto;
+  max-width: 32.5rem;
+}
+
+/* || GENERAL STYLES */
+html {
+  font-size: var(--FS);
+  font-family: var(--FF);
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--BGCOLOR);
+}
+
+:focus-visible {
+  outline-offset: 6px;
+}
+
+/* || HEADER */
+.header {
+  position: relative;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.header__container {
+  padding-top: 7.7rem;
+}
+
+.theme {
+  box-shadow: var(--BOX-SHADOW-THEME);
+  background-color: transparent;
+  border-radius: 50px;
+  position: absolute;
+  z-index: 10;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5em 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.theme__button {
+  border: var(--BORDER-THEME-BUTTON);
+  background-color: var(--BGCOLOR-THEME-BUTTON);
+  border-radius: 100px;
+  width: 2.5rem;
+  height: 1.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.theme__button::after {
+  content: "";
+  background-color: var(--BGCOLOR-THEME-BUTTON-AFTER);
+  position: absolute;
+  left: 0;
+  top: 0.225rem;
+  bottom: 0.225rem;
+  width: 1rem;
+  border-radius: 100px;
+  transform: translateX(0.2rem);
+}
+
+.theme__button.active::after {
+  transform: translateX(1.1rem);
+}
+
+.theme__icon {
+  opacity: 1;
+  width: 1.125rem;
+}
+
+.theme__icon--light {
+  color: var(--FONT-COLOR-THEME-ICON-LIGHT);
+}
+
+.theme__icon--dark {
+  color: var(--FONT-COLOR-THEME-ICON-DARK);
+}
+
+.header__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+}
+
+.header__background-image {
+  max-width: none;
+  width: 100%;
+}
+
+.header__link {
+  display: inline-block;
+  margin-bottom: 3.75em;
+}
+
+.header__logo {
+  color: var(--FONT-COLOR-HEADER-LOGO);
+}
+
+.header__link:hover .header__logo,
+.header__link:focus-visible .header__logo {
+  color: var(--FONT-COLOR-HEADER-LOGO-HOVER);
+}
+
+.header__title {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.5em;
+  color: var(--FONT-COLOR-HEADER-TITLE);
+}
+
+.header__description {
+  font-size: 1rem;
+  letter-spacing: 0.1px;
+  line-height: 1.625;
+  color: var(--FONT-COLOR-HEADER-DESCRIPTION);
+  margin-bottom: 2.95em;
+}
+
+.header__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.7em;
+}
+
+.header__download {
+  width: 100%;
+  color: var(--FONT-COLOR-HEADER-DOWNLOAD);
+  font-weight: 600;
+  font-size: 1.125rem;
+  letter-spacing: 0.5px;
+  padding: 0.925em 0.925em 0.75em;
+  border-radius: 100px;
+}
+
+.header__download--ios {
+  background-color: var(--BGCOLOR-HEADER-DOWNLOAD-IOS);
+  box-shadow: var(--BOX-SHADOW-HEADER-DOWNLOAD-IOS);
+}
+
+.header__download--ios:hover,
+.header__download--ios:focus-visible {
+  background-color: var(--BGCOLOR-HEADER-DOWNLOAD-IOS-HOVER);
+}
+
+.header__download--mac {
+  background-color: var(--BGCOLOR-HEADER-DOWNLOAD-MAC);
+  box-shadow: var(--BOX-SHADOW-HEADER-DOWNLOAD-MAC);
+}
+
+.header__download--mac:hover,
+.header__download--mac:focus-visible {
+  background-color: var(--BGCOLOR-HEADER-DOWNLOAD-MAC-HOVER);
+}
+
+/* || MAIN */
+.main__container {
+  padding-top: 9.25rem;
+  padding-bottom: 10.75rem;
+}
+
+.track {
+  text-align: center;
+  margin-bottom: 11.5em;
+}
+
+.track__title {
+  font-weight: 600;
+  color: var(--FONT-COLOR-TRACK-TITLE);
+  font-size: 1.7rem;
+  margin-bottom: 0.6em;
+}
+
+.track__description {
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--FONT-COLOR-TRACK-DESCRIPTION);
+  margin-bottom: 4em;
+}
+
+.track__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3.5em;
+}
+
+.track__features {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2.95em;
+}
+
+.track__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.7em;
+}
+
+.track__feature-title {
+  font-weight: 600;
+  font-size: 1.45rem;
+  color: var(--FONT-COLOR-TRACK-FEATURE-TITLE);
+}
+
+.track__feature-info {
+  font-size: 1.02rem;
+  line-height: 1.615;
+  color: var(--FONT-COLOR-TRACK-FEATURE-INFO);
+}
+
+.access {
+  text-align: center;
+  margin-bottom: 7.4em;
+}
+
+.access__title {
+  font-weight: 600;
+  font-size: 1.7rem;
+  line-height: 1.3;
+  color: var(--FONT-COLOR-ACCESS-TITLE);
+  margin-bottom: 0.65em;
+  text-transform: capitalize;
+}
+
+.access__description {
+  font-size: 1.02rem;
+  color: var(--FONT-COLOR-ACCESS-DESCRIPTION);
+  line-height: 1.6;
+  margin-bottom: 3.6em;
+}
+
+.access__image {
+  margin-inline: auto;
+}
+
+.supercharge {
+  text-align: center;
+  margin-bottom: 8.2em;
+}
+
+.supercharge__title {
+  color: var(--FONT-COLOR-SUPERCHARGE-TITLE);
+  font-weight: 600;
+  font-size: 1.7rem;
+  margin-bottom: 0.5em;
+}
+
+.supercharge__description {
+  color: var(--FONT-COLOR-SUPERCHARGE-DESCRIPTION);
+  font-size: 1.02rem;
+  line-height: 1.6;
+  margin-bottom: 5.35em;
+}
+
+.supercharge__features {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3.5em;
+}
+
+.supercharge__icon {
+  margin-bottom: 2.3em;
+  color: var(--FONT-COLOR-SUPERCHARGE-ICON);
+  cursor: pointer;
+}
+
+.supercharge__icon:hover {
+  color: var(--FONT-COLOR-SUPERCHARGE-ICON-HOVER);
+  transform: scale(1.05);
+}
+
+.supercharge__feature-title {
+  font-weight: 600;
+  font-size: 1.45rem;
+  color: var(--FONT-COLOR-SUPERCHARGE-FEATURE-TITLE);
+  margin-bottom: 0.85em;
+}
+
+.supercharge__feature-info {
+  font-size: 1.02rem;
+  line-height: 1.575;
+  color: var(--FONT-COLOR-SUPERCHARGE-FEATURE-INFO);
+}
+
+.supercharge__list:nth-child(2) .supercharge__icon {
+  margin-bottom: 2.5em;
+}
+
+.supercharge__list:nth-child(2) .supercharge__feature-info {
+  font-size: 1.01rem;
+}
+
+.supercharge__list:nth-child(3) .supercharge__icon {
+  margin-bottom: 2.6em;
+}
+
+.clients {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10.5em;
+}
+
+.clients__logos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.clients__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clients__list:nth-child(1) {
+  margin-bottom: 4.1em;
+}
+
+.clients__list:nth-child(2) {
+  margin-bottom: 4.2em;
+}
+
+.clients__list:nth-child(3) {
+  margin-bottom: 4em;
+}
+
+.clients__list:nth-child(4) {
+  margin-bottom: 3.5em;
+}
+
+.clients__logo {
+  width: 85%;
+}
+
+.cta {
+  text-align: center;
+}
+
+.cta__title {
+  font-weight: 600;
+  font-size: 1.7rem;
+  color: var(--FONT-COLOR-CTA-TITLE);
+  margin-bottom: 0.7em;
+}
+
+.cta__description {
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--FONT-COLOR-CTA-INFO);
+  margin-bottom: 2.65em;
+}
+
+.cta__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.7em;
+}
+
+.cta__download {
+  width: 100%;
+  color: var(--FONT-COLOR-CTA-DOWNLOAD);
+  font-weight: 600;
+  font-size: 1.125rem;
+  letter-spacing: 0.5px;
+  padding: 0.925em 0.925em 0.75em;
+  border-radius: 100px;
+}
+
+.cta__download--ios {
+  background-color: var(--BGCOLOR-CTA-DOWNLOAD-IOS);
+  box-shadow: var(--BOX-SHADOW-CTA-DOWNLOAD-IOS);
+}
+
+.cta__download--ios:hover,
+.cta__download--ios:focus-visible {
+  background-color: var(--BGCOLOR-CTA-DOWNLOAD-IOS-HOVER);
+}
+
+.cta__download--mac {
+  background-color: var(--BGCOLOR-CTA-DOWNLOAD-MAC);
+  box-shadow: var(--BOX-SHADOW-CTA-DOWNLOAD-MAC);
+}
+
+.cta__download--mac:hover,
+.cta__download--mac:focus-visible {
+  background-color: var(--BGCOLOR-CTA-DOWNLOAD-MAC-HOVER);
+}
+
+/* || FOOTER */
+.footer {
+  background-color: var(--BGCOLOR-FOOTER);
+}
+
+.footer__container {
+  padding-top: 1.15em;
+  padding-bottom: 2.75em;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2em;
+}
+
+.footer__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.footer__home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__logo {
+  transform: scale(0.425);
+  color: var(--FONT-COLOR-FOOTER-LOGO);
+}
+
+.footer__home:hover .footer__logo,
+.footer__home:focus-visible .footer__logo {
+  color: var(--FONT-COLOR-FOOTER-LOGO-HOVER);
+}
+
+.footer__links {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75em;
+}
+
+.footer__list {
+  text-align: center;
+}
+
+.footer__link {
+  font-size: 1.1rem;
+  color: var(--FONT-COLOR-FOOTER-LINK);
+}
+
+.footer__link:hover,
+.footer__link:focus-visible {
+  color: var(--FONT-COLOR-FOOTER-LINK-HOVER);
+}
+
+.footer__socials {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5em;
+}
+
+.footer__icon {
+  color: var(--FONT-COLOR-FOOTER-ICON);
+}
+
+.footer__social-link:hover .footer__icon,
+.footer__social-link:focus-visible .footer__icon {
+  color: var(--FONT-COLOR-FOOTER-ICON-HOVER);
+  transform: scale(1.05);
+}
+
+/* || MEDIA QUERY (DEVICE WIDTH) */
+@media screen and (min-width: 48rem) {
+  /* || UTILITY CLASSES */
+  .container {
+    max-width: none;
+  }
+
+  /* || HEADER */
+  .header {
+    margin-bottom: 0.4em;
+  }
+
+  .header__container {
+    padding-top: 8.2rem;
+  }
+
+  .header__link {
+    display: inline-block;
+    margin-bottom: 3.25em;
+  }
+
+  .header__title {
+    font-size: clamp(2rem, 1rem + 2.0833vw, 2.875rem);
+    letter-spacing: -0.75px;
+    margin-bottom: 0.35em;
+  }
+
+  .header__description {
+    font-size: clamp(1rem, 0.7143rem + 0.5952vw, 1.25rem);
+    max-width: 45rem;
+    margin-inline: auto;
+    line-height: 1.5;
+    margin-bottom: 2.45em;
+  }
+
+  .header__cta {
+    flex-direction: row;
+    justify-content: center;
+    margin-inline: auto;
+    max-width: 29.5rem;
+    gap: 1.2em;
+  }
+
+  /* || MAIN */
+  .main__container {
+    padding-bottom: 9.5rem;
+  }
+
+  .track {
+    margin-bottom: 9.35em;
+  }
+
+  .track__title {
+    font-size: clamp(1.7rem, 1.1571rem + 1.131vw, 2.175rem);
+  }
+
+  .track__description {
+    font-size: clamp(1.02rem, 0.8771rem + 0.2976vw, 1.145rem);
+    max-width: 44rem;
+    margin-inline: auto;
+    margin-bottom: 4.35em;
+  }
+
+  .track__wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0;
+    max-width: 80rem;
+    margin-inline: auto;
+  }
+
+  .track__image {
+    width: clamp(28.5rem, 7.3571rem + 44.0476vw, 47rem);
+    position: relative;
+    left: clamp(-7rem, 5.8571rem - 14.2857vw, -1rem);
+  }
+
+  .track__features {
+    text-align: left;
+    margin-top: clamp(0rem, -4.8571rem + 10.119vw, 4.25rem);
+    gap: 3.55em;
+  }
+
+  .track__list {
+    max-width: 22rem;
+  }
+
+  .track__feature-info {
+    line-height: 1.75;
+  }
+
+  .access {
+    margin-bottom: 4.5em;
+  }
+
+  .access__title {
+    font-size: clamp(1.7rem, 1.1429rem + 1.1607vw, 2.1875rem);
+    text-transform: none;
+    margin-bottom: 0.55em;
+  }
+
+  .access__description {
+    font-size: clamp(1.02rem, 0.8771rem + 0.2976vw, 1.145rem);
+    max-width: 43rem;
+    margin-inline: auto;
+    line-height: 1.65;
+    margin-bottom: 5.4em;
+  }
+
+  .access__image {
+    position: relative;
+    left: 2px;
+  }
+
+  .supercharge {
+    margin-bottom: 10em;
+  }
+
+  .supercharge__title {
+    font-size: clamp(1.7rem, 1.1429rem + 1.1607vw, 2.1875rem);
+    margin-bottom: 0.6em;
+  }
+
+  .supercharge__description {
+    font-size: clamp(1.02rem, 0.8771rem + 0.2976vw, 1.145rem);
+    margin-bottom: 3.8em;
+  }
+
+  .supercharge__features {
+    flex-direction: row;
+    justify-content: center;
+    max-width: 70rem;
+    margin-inline: auto;
+    gap: 1.25em;
+  }
+
+  .supercharge__list {
+    flex: 1;
+  }
+
+  .supercharge__feature-info {
+    line-height: 1.775;
+  }
+
+  .supercharge__list:nth-child(2) .supercharge__icon {
+    margin-top: -1.5em;
+  }
+
+  .supercharge__list:nth-child(2) .supercharge__feature-info {
+    font-size: 1.02rem;
+  }
+
+  .supercharge__list:nth-child(3) .supercharge__icon {
+    margin-top: -1.5em;
+  }
+
+  .clients {
+    margin-bottom: 9.85em;
+  }
+
+  .clients__logos {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: clamp(2rem, -2.5714rem + 9.5238vw, 6rem);
+  }
+
+  .clients__list:nth-child(1) {
+    margin-bottom: 0;
+  }
+
+  .clients__list:nth-child(2) {
+    margin-bottom: 0;
+  }
+
+  .clients__list:nth-child(3) {
+    margin-bottom: 0;
+    margin-top: 0.5em;
+  }
+
+  .clients__list:nth-child(4) {
+    margin-bottom: 0;
+  }
+
+  .clients__list:nth-child(5) {
+    margin-bottom: 0;
+    margin-top: 0.8em;
+  }
+
+  .clients__logo {
+    width: 100%;
+  }
+
+  .cta__title {
+    font-size: clamp(1.7rem, 1.1571rem + 1.131vw, 2.175rem);
+    margin-bottom: 0.6em;
+  }
+
+  .cta__description {
+    font-size: clamp(1.02rem, 0.8771rem + 0.2976vw, 1.145rem);
+    max-width: 46rem;
+    margin-inline: auto;
+    margin-bottom: 2.6em;
+  }
+
+  .cta__wrapper {
+    flex-direction: row;
+    justify-content: center;
+    max-width: 29.5rem;
+    margin-inline: auto;
+    gap: 1em;
+  }
+
+  /* || FOOTER */
+  .footer__container {
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 77.75rem;
+    padding-bottom: 0.5em;
+  }
+
+  .footer__wrapper {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 6.25em;
+  }
+
+  .footer__logo {
+    position: relative;
+    top: -0.55em;
+  }
+
+  .footer__links {
+    grid-template-rows: 1fr 1fr;
+    grid-auto-flow: column;
+    column-gap: clamp(1rem, -4.7143rem + 11.9048vw, 6rem);
+    row-gap: 1.25em;
+    margin-top: 1.5em;
+  }
+
+  .footer__list {
+    text-align: left;
+  }
+
+  .footer__list:last-child {
+    position: relative;
+    right: clamp(0rem, -1.8286rem + 3.8095vw, 1.6rem);
+  }
+
+  .footer__link {
+    font-size: 1.15rem;
+  }
+
+  .footer__socials {
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-right: 2.25em;
+    margin-top: 2.85em;
+    gap: 1.5em;
+  }
+}
+
+/* || MEDIA QUERY (REDUCED MOTION) */
+/* CHANGE THE DATA BELOW AS NEEDED */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body,
+  .footer {
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .header__title,
+  .header__description,
+  .header__logo,
+  .header__download,
+  .track__title,
+  .track__description,
+  .track__feature-title,
+  .track__feature-info,
+  .access__title,
+  .access__description,
+  .supercharge__title,
+  .supercharge__description,
+  .supercharge__feature-title,
+  .supercharge__feature-info,
+  .cta__title,
+  .cta__info,
+  .cta__download,
+  .footer__logo,
+  .footer__link {
+    transition: color 0.2s ease-in-out;
+  }
+
+  .header__download--ios,
+  .header__download--mac,
+  .cta__download--ios,
+  .cta__download--mac {
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+
+  .supercharge__icon,
+  .footer__icon {
+    transition: color 0.2s ease-in-out, transform 0.15s ease-in-out;
+  }
+
+  .theme {
+    transition: box-shadow 0.3s ease-in-out;
+  }
+
+  .theme__button {
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  }
+
+  .theme__button::after {
+    transition: transform 0.15s ease-in-out, background-color 0.3s ease-in-out;
+  }
+
+  .theme__icon {
+    transition: opacity 0.3s ease-in-out;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    animation: none !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0.001ms !important;
+    transition: none !important;
+    caret-color: auto !important;
+  }
+}
