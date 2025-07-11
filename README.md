@@ -17,6 +17,7 @@
 ![Dark Mode](https://img.shields.io/badge/Dark--Mode-Available-111?style=for-the-badge&logo=halfbrickstudios&logoColor=white)
 [![Google Lighthouse](https://img.shields.io/badge/Lighthouse-Audit-00B0FF?style=for-the-badge&logo=lighthouse&logoColor=white)](./assets/downloads/lighthouse-performance-report.pdf)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b35f4963-a0bb-486c-a11d-753cd31178f1/deploy-status)](https://clipboard-landing-page-fm-jiro.netlify.app/)
 ![Status](https://img.shields.io/badge/status-complete-brightgreen)
 ![Learning Path](https://img.shields.io/badge/learning%20path-month%204-blue)
 ![Views](https://visitor-badge.laobi.icu/badge?page_id=CodingWithJiro.frontend-mentor-clipboard-landing-page&left_text=repo%20views)
@@ -89,7 +90,7 @@ This project showcases a modern responsive landing page built using semantic HTM
 
 ## 🌐 Live Demo
 
-Or you can check out the 👉 [live website here](LINK)
+Or you can check out the 👉 [live website here](https://clipboard-landing-page-fm-jiro.netlify.app/)
 
 ---
 
@@ -106,10 +107,3 @@ Created by **Elmar Chavez**
 🗓️ Month/Year: **July 2025**
 
 📚 Journey: **4<sup>th</sup>** month of learning _frontend web development_.
-
-<!--
-
-FRONTEND MENTOR TAGS:
-html css vscode git github netlify 4th-month frontend-mentor project perfectpixel lighthouse theme-toggle
-
--->
